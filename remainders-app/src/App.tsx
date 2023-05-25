@@ -17,9 +17,13 @@ function App() {
     setRemainders(reminders);
   };
 
+  const removeReminder = (id: number) => {
+    setRemainders(remainders.filter((remainders) => remainders.id !== id));
+  };
+
   return (
     <div className="App">
-      <ReminderList items={remainders} />
+      <ReminderList items={remainders} onRemoveReminder={removeReminder} />
     </div>
   );
 }
