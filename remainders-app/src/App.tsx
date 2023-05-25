@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ReminderList from "./components/ReminderList";
 import Remainder from "./models/remainder";
 
-const remainders: Remainder[] = [{ id: 1, title: "Reminder 1" }];
-
 function App() {
+  const [remainders, seRemainders] = useState<Remainder[]>([
+    { id: 1, title: "Reminder 1" },
+  ]);
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="App">
-      <ReminderList items={ remainders } />
+      <ReminderList items={remainders} />
     </div>
   );
 }
